@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BusinessControlDotnet.Models;
 
@@ -26,7 +27,11 @@ public class Employee
   public required EmployeeStatus Status { get; set; }
   public required string Position { get; set; }
   public required double Salary { get; set; }
+
+  [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
   public DateTime Updated { get; set; } = DateTime.Now;
+  
+  [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
   public DateTime Created { get; set; } = DateTime.Now;
 
   
