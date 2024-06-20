@@ -7,11 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BusinessControlDotnet.Models;
 using NuGet.Protocol;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BusinessControlDotnet.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class EmployeesController(EmployeeContext context) : ControllerBase
     {
         private readonly EmployeeContext _context = context;
